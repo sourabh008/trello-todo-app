@@ -36,3 +36,30 @@ npm start
 - Real-time updates with API persistence
 - Loading states and error handling
 - Responsive design
+
+## Design Decisions & Patterns
+
+### Component Architecture
+- **Atomic Design**: Components are organized in a hierarchical structure (atoms → molecules → organisms)
+- **Single Responsibility**: Each component has a focused purpose (Board, Lane, TaskCard)
+- **Composition**: Complex UI is built by composing smaller, reusable components
+
+### State Management
+- **Custom Hooks**: `useTodos` hook encapsulates all todo-related logic and API calls
+- **Local State**: Component-level state for UI interactions (editing, loading)
+- **Prop Drilling Prevention**: State is managed at appropriate levels to minimize prop passing
+
+### Performance Optimizations
+- **Memoization**: React.memo for TaskCard to prevent unnecessary re-renders
+- **Lazy Loading**: Components are loaded only when needed
+- **Debounced API Calls**: API requests are optimized to prevent excessive calls
+
+### Error Handling
+- **Centralized Error Management**: Single error state with dismissible popup
+- **Graceful Degradation**: UI remains functional even when API calls fail
+- **User Feedback**: Clear loading states and error messages
+
+### UI/UX Considerations
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **Accessibility**: Semantic HTML and ARIA attributes
+- **Visual Feedback**: Loading states and transitions for better user experience
